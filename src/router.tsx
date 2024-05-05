@@ -6,6 +6,7 @@ import {
 
 import IndexPage from "./views/IndexPage";
 import FavouritesPage from "./views/FavouritesPage";
+import Layout from "./layouts/Layout";
 
 const AppRouter = () => {
 
@@ -15,8 +16,10 @@ const AppRouter = () => {
       {/* grupo de rutas */}
       <Routes>
         {/* creo las diferentes rutas */}
-        <Route path="/" element={<IndexPage />} />
-        <Route path="/favoritos" element={<FavouritesPage />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<IndexPage />} index />
+          <Route path="/favoritos" element={<FavouritesPage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )

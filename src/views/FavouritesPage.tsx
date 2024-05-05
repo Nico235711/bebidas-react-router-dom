@@ -2,7 +2,7 @@
 const FavouritesPage = () => {
 
   return (
-    <div>FavouritesPage</div>
+    <h1>FavouritesPage</h1>
   )
 }
 
