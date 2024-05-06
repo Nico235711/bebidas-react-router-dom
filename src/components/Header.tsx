@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useMemo, useState } from "react"
+import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { useAppStore } from "../stores/useAppStore"
 
@@ -10,6 +10,7 @@ const initialState = {
 const Header = () => {
 
   const [searchFilters, setSearchFilters] = useState(initialState)
+  const [error, setError] = useState("")
   const { pathname } = useLocation()
   const isHome = useMemo(() => pathname === "/", [pathname])
   const { categories: { drinks }, fetchCategories } = useAppStore()
@@ -20,6 +21,12 @@ const Header = () => {
       ...searchFilters,
       [e.target.name]: e.target.value
     })
+  }
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => { 
+    e.preventDefault()
+
+
   }
 
   useEffect(() => {
@@ -48,7 +55,10 @@ const Header = () => {
         </div>
 
         {isHome && (
-          <form className="my-5 md:w-1/2 2xl:1/3 bg-orange-400 rounded-lg p-10 shadow space-y-4">
+          <form
+            className="my-5 md:w-1/2 2xl:1/3 bg-orange-400 rounded-lg p-10 shadow space-y-4"
+            onSubmit={handleSubmit}
+          >
             <div>
               <label
                 htmlFor="ingredient"
