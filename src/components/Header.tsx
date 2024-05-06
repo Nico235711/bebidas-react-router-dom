@@ -6,7 +6,7 @@ const Header = () => {
 
   const { pathname } = useLocation()
   const isHome = useMemo(() => pathname === "/", [pathname])
-  const { fetchCategories } = useAppStore()
+  const { categories: { drinks }, fetchCategories } = useAppStore()
 
   useEffect(() => {
     fetchCategories()
@@ -56,6 +56,9 @@ const Header = () => {
               >Categoría</label>
               <select name="category" id="category" className="mt-3 p-1 rounded-lg outline-none w-full">
                 <option value="">-- Seleccione una Categoría --</option>
+                {drinks.map(drink => (
+                  <option value={drink.strCategory} key={drink.strCategory}>{drink.strCategory}</option>
+                ))}
               </select>
             </div>
 
