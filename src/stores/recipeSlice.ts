@@ -1,4 +1,12 @@
+import { StateCreator } from "zustand"
 
-export const createRecipeSlice = () => ({
+type Category = {}
+
+export type RecipesSliceType = {
+  categories: Category[]
+}
+
+// importo StateCreator para tener autocompletado
+export const createRecipeSlice: StateCreator<RecipesSliceType> = () => ({
   categories: []
 })
