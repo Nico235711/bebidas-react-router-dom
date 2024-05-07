@@ -7,6 +7,7 @@ export type RecipesSliceType = {
   drinks: Drinks
   fetchCategories: () => Promise<void>
   searchRecipes: (searchRecipes: SearchFilter) => Promise<void>
+  fecthIdRecipe: () => Promise<void>
 }
 
 // importo StateCreator para tener autocompletado
@@ -28,5 +29,8 @@ export const createRecipeSlice: StateCreator<RecipesSliceType> = (set) => ({
     set({
       drinks
     })
+  },
+  fecthIdRecipe: async () => {
+
   }
 })

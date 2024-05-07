@@ -1,3 +1,4 @@
+import { useAppStore } from "../stores/useAppStore"
 import { Drink } from "../types"
 
 type DrinkCardProps = {
@@ -5,6 +6,8 @@ type DrinkCardProps = {
 }
 
 const DrinkCard = ({ drink }: DrinkCardProps) => {
+
+  const { fecthIdRecipe } = useAppStore()
 
   return (
     <div className="shadow-lg border my-5">
@@ -19,7 +22,7 @@ const DrinkCard = ({ drink }: DrinkCardProps) => {
         <h2 className="text-2xl truncate font-black">{drink.strDrink}</h2>
       </div>
 
-      <button type="button" className="m-3 p-2 rounded-lg bg-orange-600 w-60 text-xl text-white cursor-pointer hover:bg-orange-700 transition-all">Leer Receta</button>
+      <button type="button" className="m-3 p-2 rounded-lg bg-orange-600 w-60 text-xl text-white cursor-pointer hover:bg-orange-700 transition-all" onClick={() => fet}>Ver Receta</button>
     </div>
   )
 }
