@@ -7,3 +7,8 @@ export const CategoriesApiSchema = z.object({
     })
   )
 })
+
+export const SearchFilterSchema = z.object({
+  ingredient: z.string(),
+  category: z.string()
+})
