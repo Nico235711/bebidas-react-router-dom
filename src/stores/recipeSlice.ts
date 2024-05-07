@@ -1,4 +1,3 @@
-import { DrinksApiSchema } from './../utils/recipe-schema';
 import { StateCreator } from "zustand"
 import { getCategories, getRecipes } from "../apis/RecipeApi"
 import { Categories, Drinks, SearchFilter } from "../types"
