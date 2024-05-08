@@ -64,6 +64,18 @@ export default function Modal() {
                   </DialogTitle>
 
                   <p>{drinkDetails.strInstructions}</p>
+
+                  <div className="flex justify-between my-4 gap-3">
+                    <button
+                      type='button'
+                      className="bg-red-500 px-5 py-1 text-white text-xl hover:bg-red-600 transition-all w-full"
+                      onClick={closeModal}
+                    >Cerrar</button>
+                    <button
+                      type='button'
+                      className="bg-blue-600 px-5 py-1 text-white text-xl hover:bg-blue-800 transition-all w-full"
+                    >Añadir a Favoritos</button>
+                  </div>
                 </DialogPanel>
               </TransitionChild>
             </div>
