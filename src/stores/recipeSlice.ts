@@ -1,13 +1,13 @@
 import { StateCreator } from "zustand"
 import { getCategories, getRecipes } from "../apis/RecipeApi"
-import { Categories, Drinks, SearchFilter } from "../types"
+import { Categories, Drink, Drinks, SearchFilter } from "../types"
 
 export type RecipesSliceType = {
   categories: Categories
-  drinks: Drinks
+  drinks: Drinks,
   fetchCategories: () => Promise<void>
   searchRecipes: (searchRecipes: SearchFilter) => Promise<void>
-  fecthIdRecipe: () => Promise<void>
+  fecthIdRecipe: (id: Drink["idDrink"]) => Promise<void>
 }
 
 // importo StateCreator para tener autocompletado
@@ -30,7 +30,7 @@ export const createRecipeSlice: StateCreator<RecipesSliceType> = (set) => ({
       drinks
     })
   },
-  fecthIdRecipe: async () => {
-
+  fecthIdRecipe: async (id) => {
+    const drinks = await getRecipes(searchRecipes)
   }
 })
