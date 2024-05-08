@@ -19,7 +19,7 @@ export const createRecipeSlice: StateCreator<RecipesSliceType> = (set) => ({
   drinks: {
     drinks: []
   },
-  drinkDetails: {}
+  drinkDetails: {} as DrinkDetails,
   fetchCategories: async () => {
     const categories = await getCategories()
     set({
@@ -34,7 +34,8 @@ export const createRecipeSlice: StateCreator<RecipesSliceType> = (set) => ({
   },
   fecthIdRecipe: async (id) => {
     const drinkDetails = await getDrinkDetails(id)
-    console.log(drinkDetails);
-    
+    set({
+      drinkDetails
+    })
   }
 })
