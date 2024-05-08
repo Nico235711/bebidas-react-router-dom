@@ -4,7 +4,7 @@ import { useAppStore } from '../stores/useAppStore';
 
 export default function Modal() {
 
-  const { modal, closeModal } = useAppStore()
+  const { drinkDetails, modal, closeModal } = useAppStore()
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function Modal() {
             <div className="fixed inset-0 bg-black bg-opacity-70" />
           </TransitionChild>
 
-          <div className="fixed inset-0 overflow-y-aut  o">
+          <div className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <TransitionChild
                 as={Fragment}
@@ -35,14 +35,18 @@ export default function Modal() {
               >
                 <DialogPanel className="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl sm:p-6" >
                   <DialogTitle as="h3" className="text-gray-900 text-4xl font-extrabold my-5 text-center">
-                    Titulo Aquí
+                    {drinkDetails.strDrink}
                   </DialogTitle>
+
+                  <img src={drinkDetails.strDrinkThumb} alt={`Imagen de la bebida ${drinkDetails.strDrink}`} className='mx-auto w-96' />
                   <DialogTitle as="h3" className="text-gray-900 text-2xl font-extrabold my-5">
                     Ingredientes y Cantidades
                   </DialogTitle>
                   <DialogTitle as="h3" className="text-gray-900 text-2xl font-extrabold my-5">
                     Instrucciones
                   </DialogTitle>
+
+                  <p>{drinkDetails.strInstructions}</p>
                 </DialogPanel>
               </TransitionChild>
             </div>
