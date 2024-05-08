@@ -1,10 +1,25 @@
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
 import { Fragment } from 'react';
 import { useAppStore } from '../stores/useAppStore';
+import { DrinkDetails } from '../types';
 
 export default function Modal() {
 
   const { drinkDetails, modal, closeModal } = useAppStore()
+  const renderIngredients = () => {
+
+    const ingredients: JSX.Element[] = []
+    for (let index = 1; index <= 6; index++) {
+      const ingredient = drinkDetails[`strIngredient${index}` as keyof DrinkDetails]
+      const measure = drinkDetails[`strMeasure${index}` as keyof DrinkDetails]
+      if (ingredient && measure) {
+        ingredients.push(
+          <li key={index} className='text-lg'>{ingredient} - {measure}</li>
+        )
+      }
+    }
+    return ingredients
+  }
 
   return (
     <>
@@ -42,6 +57,8 @@ export default function Modal() {
                   <DialogTitle as="h3" className="text-gray-900 text-2xl font-extrabold my-5">
                     Ingredientes y Cantidades
                   </DialogTitle>
+
+                  {renderIngredients()}
                   <DialogTitle as="h3" className="text-gray-900 text-2xl font-extrabold my-5">
                     Instrucciones
                   </DialogTitle>
