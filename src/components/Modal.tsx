@@ -5,7 +5,7 @@ import { DrinkDetails } from '../types';
 
 export default function Modal() {
 
-  const { drinkDetails, modal, closeModal, addFavourite } = useAppStore()
+  const { drinkDetails, modal, closeModal, ifExists, addFavourite } = useAppStore()
   const renderIngredients = () => {
 
     const ingredients: JSX.Element[] = []
@@ -74,8 +74,11 @@ export default function Modal() {
                     <button
                       type='button'
                       className="bg-blue-600 px-5 py-1 text-white text-xl hover:bg-blue-800 transition-all w-full"
-                      onClick={() => addFavourite(drinkDetails)}
-                    >Añadir a Favoritos</button>
+                      onClick={() => {
+                        addFavourite(drinkDetails)
+                        closeModal()
+                      }}
+                    >{ifExists ? "Eliminar de Favoritos" : "Añadir a Favoritos"}</button>
                   </div>
                 </DialogPanel>
               </TransitionChild>
