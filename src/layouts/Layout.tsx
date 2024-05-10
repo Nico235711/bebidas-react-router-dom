@@ -1,8 +1,9 @@
-import { Outlet } from "react-router-dom"
-import Header from "../components/Header"
-import Modal from "../components/Modal"
-import { useAppStore } from "../stores/useAppStore"
-import { useEffect } from "react"
+import Header from '../components/Header';
+import Modal from '../components/Modal';
+import Notification from '../components/Notification';
+import { Outlet } from 'react-router-dom';
+import { useAppStore } from '../stores/useAppStore';
+import { useEffect } from 'react';
 
 const Layout = () => {
 
@@ -22,6 +23,7 @@ const Layout = () => {
       </main>
 
       <Modal />
+      <Notification />
     </>
   )
 }

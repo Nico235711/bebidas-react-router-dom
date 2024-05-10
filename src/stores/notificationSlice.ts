@@ -11,6 +11,10 @@ export type NotificationSliceType = {
 }
 
 // slice pattern
-export const createNotificationSlice: StateCreator<NotificationSliceType> = (set, get) => ({
-  notification: {} as Notification
+export const createNotificationSlice: StateCreator<NotificationSliceType> = (set) => ({
+  notification: {
+    text: "",
+    error: false,
+    show: false
+  }
 })
