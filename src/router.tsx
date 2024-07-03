@@ -17,6 +17,7 @@ const AppRouter = () => {
       <Routes>
         {/* creo las diferentes rutas */}
         <Route element={<Layout />}>
+          {/* tanto IndexPage y FavouritesPage usarán Layout */}
           <Route path="/" element={<IndexPage />} index />
           <Route path="/favoritos" element={<FavouritesPage />} />
         </Route>

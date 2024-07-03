@@ -10,7 +10,7 @@ const DrinkCard = ({ drink }: DrinkCardProps) => {
   const { fecthIdRecipe, getIdDrink } = useAppStore()
 
   return (
-    <div className="shadow-lg border my-5">
+    <div className="shadow-lg border">
       <div className="overflow-hidden">
         <img
           src={drink.strDrinkThumb}
