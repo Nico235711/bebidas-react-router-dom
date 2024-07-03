@@ -19,6 +19,7 @@ export const createFavouriteSlice: StateCreator<FavouritesSliceType> = (set, get
       set((state) => ({
         favourites: state.favourites.filter(favourite => favourite.idDrink !== drink.idDrink)
       }))
+      // createNotificationSlice().showNotification({ "" })
     } else {
       set((state) => ({
         favourites: [...state.favourites, drink]

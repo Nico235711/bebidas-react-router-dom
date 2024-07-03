@@ -48,6 +48,7 @@ const Header = () => {
             <img src="/logo.svg" alt="logotipo" />
           </div>
           <nav className="flex gap-5">
+            {/* mejora de performance */}
             <NavLink
               to="/"
               className={({ isActive }) => 
