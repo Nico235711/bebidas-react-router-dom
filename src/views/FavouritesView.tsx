@@ -2,7 +2,7 @@ import { useMemo } from "react"
 import DrinkCard from "../components/DrinkCard"
 import { useAppStore } from "../stores/useAppStore"
 
-const FavouritesPage = () => {
+const FavouritesView = () => {
 
   const { favourites } = useAppStore()
   const hasFavourites = useMemo(() => favourites.length, [favourites])
@@ -25,4 +25,4 @@ const FavouritesPage = () => {
   )
 }
 
-export default FavouritesPage
+export default FavouritesView
