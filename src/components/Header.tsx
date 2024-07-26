@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useEffect, useMemo, useState } from "react"
-import { NavLink, useLocation } from "react-router-dom"
+import { Link, NavLink, useLocation } from "react-router-dom"
 import { useAppStore } from "../stores/useAppStore"
 
 const initialState = {
@@ -45,7 +45,9 @@ const Header = () => {
       <div className="mx-auto px-5 py-16 container">
         <div className="flex justify-between items-center">
           <div className="w-32">
-            <img src="/logo.svg" alt="logotipo" />
+            <Link to="/">
+              <img src="/logo.svg" alt="logotipo" />
+            </Link>
           </div>
           <nav className="flex gap-5">
             {/* mejora de performance */}
