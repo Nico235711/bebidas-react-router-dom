@@ -9,7 +9,7 @@ const IndexView = () => {
 
   return (
     <>
-      <h1 className="text-6xl font-extrabold">Recetas</h1>
+      <h1 className="text-6xl font-extrabold mb-5">Recetas</h1>
       {hasDrinks ? (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {drinks.drinks.map(drink => (

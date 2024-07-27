@@ -13,7 +13,7 @@ const Header = () => {
   const [error, setError] = useState("")
   const { pathname } = useLocation()
   const isHome = useMemo(() => pathname === "/", [pathname])
-  const { categories: { drinks }, fetchCategories, searchRecipes } = useAppStore()
+  const { categories: { drinks }, fetchCategories, searchRecipes, showNotification } = useAppStore()
   
   const handleSearch = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>) => {
     
@@ -29,6 +29,10 @@ const Header = () => {
     // validar
     if (Object.values(searchFilters).includes("")) {
       setError("Todos los campos son obligatorios")
+      showNotification({
+        text: error,
+        error: true
+      })
       return
     }
 
